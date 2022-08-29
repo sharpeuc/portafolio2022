@@ -13,7 +13,9 @@ var ClienteSchema = Schema({
     telefono :{type: String, required:true},
     genero :{type: String, required:false},
     f_nacimiento :{type: String, required:false},
-    rut :{type: String, required:true}
+    rut :{type: String, required:true},
+    createdAt: {type:Date, default: Date.now, require: true}
+    
 
 });
 
