@@ -19,4 +19,6 @@ api.get('/obtener_cliente_admin/:id', auth.auth, clienteController.obtener_clien
 
 api.put('/actualizar_cliente_admin/:id', auth.auth, clienteController.actualizar_cliente_admin);
 
+api.delete('/eliminar_cliente_admin/:id', auth.auth, clienteController.eliminar_cliente_admin);
+
 module.exports = api;
