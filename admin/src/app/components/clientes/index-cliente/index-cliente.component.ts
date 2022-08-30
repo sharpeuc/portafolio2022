@@ -20,6 +20,7 @@ export class IndexClienteComponent implements OnInit {
   public page = 1;
   public pageSize = 10;
   public token:any;
+  public load_data = true;
   
   constructor(
     private _clienteService: ClienteService,
@@ -42,7 +43,7 @@ init_Data(){
     response=>{
       
       this.clientes = response.data;
-        
+      this.load_data = false;
     
     },
     error=>{
@@ -57,9 +58,11 @@ filtro(tipo:any){
 
   if(tipo == 'apellidos'){
     if(this.filtro_apellidos){
+      this.load_data = true
       this._clienteService.listar_clientes_filtro_admin(tipo,this.filtro_apellidos, this.token).subscribe(
         response=>{
           this.clientes = response.data;
+          this.load_data = false;
           
         },
         error=>{
@@ -79,6 +82,7 @@ filtro(tipo:any){
         response=>{
           
           this.clientes = response.data;
+          this.load_data = false;
         },
         error=>{
           console.log(error);
