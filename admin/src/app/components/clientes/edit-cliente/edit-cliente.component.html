@@ -40,7 +40,14 @@
                   <label for="validationCustom01" class="form-label">RUT</label>
                   <input class="form-control" type="number" placeholder="Rut" required name="rut" [(ngModel)] = "cliente.rut">
                 </div>
-
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Tipo</label>
+                  <select class="form-control custom-select" required name="tipo" [(ngModel)] = "cliente.tipo">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Externo">Externo</option>
+                    <option value="Interno">Interno</option>
+                  </select>
+                </div>
                 <div class="col-md-4">
                   <label for="validationCustom01" class="form-label">Genero</label>
                   <select class="form-control custom-select" required name="genero" [(ngModel)] = "cliente.genero">
@@ -48,9 +55,13 @@
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                   </select>
+                
                 </div>
+                
+                </div>
+              
               </div>
-
+              
             
             </div>
             <div class="card-body" *ngIf="cliente == undefined">
@@ -69,5 +80,4 @@
             </button>
             <a [routerLink]="['/panel/clientes']" class="btn btn-warning">Regresar</a>
         </div>
-  </div>
 </form>    

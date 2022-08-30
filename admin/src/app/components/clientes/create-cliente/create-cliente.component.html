@@ -39,6 +39,14 @@
                   <label for="validationCustom01" class="form-label">RUT</label>
                   <input class="form-control" type="number" placeholder="Rut" required name="rut" [(ngModel)] = "cliente.rut">
                 </div>
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">Tipo</label>
+                  <select class="form-control custom-select" required name="tipo" [(ngModel)] = "cliente.tipo">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Externo">Externo</option>
+                    <option value="Interno">Interno</option>
+                  </select>
+                </div>
 
                 <div class="col-md-4">
                   <label for="validationCustom01" class="form-label">Genero</label>

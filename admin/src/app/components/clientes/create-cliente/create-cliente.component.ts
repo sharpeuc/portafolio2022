@@ -12,7 +12,8 @@ declare var iziToast:any;
 export class CreateClienteComponent implements OnInit {
 
   public cliente: any = {
-    genero: ''
+    genero: '',
+    tipo: ''
 
   };
 

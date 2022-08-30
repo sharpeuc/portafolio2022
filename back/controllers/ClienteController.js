@@ -176,7 +176,8 @@ const actualizar_cliente_admin = async function(req,res){
                 telefono: data.telefono,
                 f_nacimiento: data.f_nacimiento,
                 rut: data.rut,
-                genero: data.genero
+                genero: data.genero,
+                tipo: data.tipo
             })
             res.status(200).send({data:reg});
 
