@@ -10,6 +10,8 @@ var ProductoSchema = Schema({
     portada:{type: String, required:true},
     precio:{type: Number, required:true},
     descripcion:{type: String, required:true},
+    contenido:{type: String, required:true},
+    stock:{type: String, required:true},
     createdAt:{type:Date, default: Date.now, require: true}
     
 
