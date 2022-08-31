@@ -10,11 +10,21 @@ declare var $:any;
 })
 export class CreateProductoComponent implements OnInit {
 
-  public producto: any = {};
+  public producto: any = {
+
+    categoria: ''
+
+  };
   public file:any=undefined;
   public imgSelect: any | ArrayBuffer = 'assets/img/images.jpg';
+  public config : any = {};
  
-  constructor() { }
+  constructor() {
+
+    this.config = {
+      height: 500
+    }
+   }
 
   ngOnInit(): void {
   }
@@ -22,6 +32,8 @@ export class CreateProductoComponent implements OnInit {
 registro(registroForm:any){
 
   if(registroForm.valid){
+    console.log(this.producto);
+    console.log(this.file);
 
 
   }else{
