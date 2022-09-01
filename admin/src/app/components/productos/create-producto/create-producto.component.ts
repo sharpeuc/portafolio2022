@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 import { ProductoService } from 'src/app/services/producto.service';
 declare var iziToast:any;
@@ -21,12 +22,14 @@ export class CreateProductoComponent implements OnInit {
   public imgSelect: any | ArrayBuffer = 'assets/img/images.jpg';
   public config : any = {};
   public token:any;
+  public load_btn = false;
  
  
   constructor(
 
     private _productoService: ProductoService,
-    private _adminService: AdminService
+    private _adminService: AdminService,
+    private _router: Router
 
   ) {
 
@@ -41,18 +44,31 @@ export class CreateProductoComponent implements OnInit {
 
 registro(registroForm:any){
   if(registroForm.valid){
+    this.load_btn = true;
     console.log(this.producto);
     console.log(this.file);
 
     this._productoService.registro_producto_admin(this.producto, this.file, this.token).subscribe(
 
       response=>{
-        console.log(response);
+        iziToast.show({
+          title: 'Success',
+          titleColor: 'green',
+          class: 'text-success',
+          position: 'topLeft',
+          message: 'se registró correctamente el nuevo producto',
+          messageColor: 'blue'
+        })
 
+        this.load_btn = false;
+       
+        this._router.navigate(['/panel/productos']);
+      
       },
 
       error=>{
         console.log(error);
+        this.load_btn = false;
 
 
       }
@@ -68,7 +84,9 @@ registro(registroForm:any){
       position: 'topLeft',
       message: 'los datos del formulario no son válidos',
       messageColor: 'blue'
-    })
+    });
+
+    this.load_btn = false;
 
     $('#input-portada').text('Seleccionar imagen');
     this.imgSelect = 'assets/img/images.jpg';
@@ -99,7 +117,7 @@ registro(registroForm:any){
 
   }
 
-  if(file.size <= 4000000){
+  if(file.size <= 10000000){
 
     if(file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/gif' || file.type == 'image/jpeg'){
 
