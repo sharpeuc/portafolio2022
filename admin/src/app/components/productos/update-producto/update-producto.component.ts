@@ -1,84 +1,114 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AdminService } from 'src/app/services/admin.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
+import { GLOBAL } from 'src/app/services/GLOBAL';
 declare var iziToast:any;
 declare var jquery: any;
 declare var $:any;
 
 @Component({
-  selector: 'app-create-producto',
-  templateUrl: './create-producto.component.html',
-  styleUrls: ['./create-producto.component.css']
+  selector: 'app-update-producto',
+  templateUrl: './update-producto.component.html',
+  styleUrls: ['./update-producto.component.css']
 })
-export class CreateProductoComponent implements OnInit {
+export class UpdateProductoComponent implements OnInit {
 
-  public producto: any = {
-
-    categoria: ''
-
-  };
-  public file:any= undefined;
-  public imgSelect: any | ArrayBuffer = 'assets/img/images.jpg';
-  public config : any = {};
-  public token:any;
+  public producto: any = {};
+  public config: any = {};
+  public imgSelect: any;
   public load_btn = false;
- 
- 
-  constructor(
+  public id:any;
+  public token: any;
+  public url;
+  public file: any = undefined;
+  
 
+  
+  constructor(
+    private _route: ActivatedRoute,
     private _productoService: ProductoService,
-    private _adminService: AdminService,
-    private _router: Router
+    private _router:Router
 
   ) {
 
     this.config = {
-      height: 500
+    height: 500,
+    
+
     }
-    this.token = this._adminService.getToken();
-  }
-
+    this.token = localStorage.getItem('token');
+    this.url = GLOBAL.url;
+   }
   ngOnInit(): void {
+  
+    this._route.params.subscribe(
+
+      params=>{
+        this.id = params['id'];
+        console.log(this.id);
+        this._productoService.obtener_producto_admin(this.id,this.token).subscribe(
+          response=>{
+            if(response.data == undefined){
+              this.producto = undefined;
+
+
+            }else{
+
+              this.producto = response.data
+              this.imgSelect = this.url + 'obtener_portada/' +this.producto.portada;
+            }
+          },
+          error=>{
+            console.log(error);
+
+
+          }
+        )
+      }
+
+    );
+  
   }
 
-registro(registroForm:any){
-  if(registroForm.valid){
-    if(this.file == undefined){
-      iziToast.show({
-        title: 'Error',
-        titleColor: 'red',
-        class: 'text-danger',
-        position: 'topLeft',
-        message: 'debe subir una portada para registrar un producto',
-        messageColor: 'blue'
-      });
+actualizar(actualizarForm:any){
 
-    }else{
+  if(actualizarForm.valid){
+    
+    var data: any = {};
 
-      
-    console.log(this.producto);
-    console.log(this.file);
+    if(this.file != undefined){
+      data.portada = this.file
+
+    }
+
+    data.titulo = this.producto.titulo;
+    data.stock = this.producto.stock;
+    data.precio = this.producto.precio;
+    data.categoria = this.producto.categoria;
+    data.descripcion = this.producto.descripcion;
+    data.contenido = this.producto.contenido;
+    
     this.load_btn = true;
-
-    this._productoService.registro_producto_admin(this.producto, this.file, this.token).subscribe(
-
+    this._productoService.actualizar_producto_admin(data,this.id,this.token).subscribe(
       response=>{
+        console.log(response)
+
         iziToast.show({
           title: 'Success',
           titleColor: 'green',
           class: 'text-success',
           position: 'topLeft',
-          message: 'se registró correctamente el nuevo producto',
+          message: 'Producto actualizado correctamente',
           messageColor: 'blue'
-        })
+        });
 
         this.load_btn = false;
-       
+        
         this._router.navigate(['/panel/productos']);
-      
-      },
 
+
+
+      },
       error=>{
         console.log(error);
         this.load_btn = false;
@@ -86,11 +116,11 @@ registro(registroForm:any){
 
       }
 
-    );
-    }
-  
-  
+    )
+
+
   }else{
+
     iziToast.show({
       title: 'Error',
       titleColor: 'red',
@@ -99,17 +129,13 @@ registro(registroForm:any){
       message: 'los datos del formulario no son válidos',
       messageColor: 'blue'
     });
-
+    
     this.load_btn = false;
-
-    $('#input-portada').text('Seleccionar imagen');
-    this.imgSelect = 'assets/img/images.jpg';
-    this.file = undefined;
   }
 
-
 }
- fileChangeEvent(event:any):void{
+
+fileChangeEvent(event:any):void{
 
   var file:any;
 
@@ -179,4 +205,5 @@ registro(registroForm:any){
   }
   console.log(this.file);
  }
+
 }
