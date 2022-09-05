@@ -15,7 +15,8 @@ api.get('/obtener_producto_admin/:id',auth.auth,productoController.obtener_produ
 api.put('/actualizar_producto_admin/:id',[auth.auth,path],productoController.actualizar_producto_admin);
 api.delete('/eliminar_producto_admin/:id',auth.auth,productoController.eliminar_producto_admin);
 
-
+api.get('/listar_bodega_producto_admin/:id', auth.auth,productoController.listar_bodega_producto_admin);
+api.delete('/eliminar_bodega_producto_admin/:id',auth.auth,productoController.eliminar_bodega_producto_admin);
 
 
 

@@ -9,6 +9,7 @@ import { EditClienteComponent } from "./components/clientes/edit-cliente/edit-cl
 import { CreateProductoComponent } from "./components/productos/create-producto/create-producto.component";
 import { IndexProductoComponent } from "./components/productos/index-producto/index-producto.component";
 import { UpdateProductoComponent } from "./components/productos/update-producto/update-producto.component";
+import { BodegaProductoComponent } from "./components/productos/bodega-producto/bodega-producto.component";
 
 const appRoute: Routes = [
     {path:'', redirectTo: 'inicio', pathMatch: 'full'},
@@ -23,6 +24,8 @@ const appRoute: Routes = [
         {path: 'productos/registro', component: CreateProductoComponent, canActivate: [AdminGuard]},
         {path: 'productos', component: IndexProductoComponent, canActivate: [AdminGuard]},
         {path: 'productos/:id', component: UpdateProductoComponent, canActivate: [AdminGuard]},
+        {path: 'productos/bodega/:id', component: BodegaProductoComponent, canActivate: [AdminGuard]},
+
 
     ]},
     

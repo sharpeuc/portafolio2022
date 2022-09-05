@@ -65,6 +65,7 @@
                             <div class="dropdown-menu">
                               <a class="dropdown-item" [routerLink]="['/panel/productos', item._id]">Editar producto</a>
                               <a class="dropdown-item" style="cursor:pointer;" data-toggle="modal" [attr.data-target] = "'#delete-' +item._id">Eliminar producto</a>
+                              <a class="dropdown-item" [routerLink]="['/panel/productos/bodega', item._id]">Bodega</a>
                             </div>
                             <div class="modal fade" id="delete-{{item._id}}" tabindex="-1" style="display: none;" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered" role="document">

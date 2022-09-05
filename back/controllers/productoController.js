@@ -1,6 +1,8 @@
-'use strict'
+
 
 var Producto = require('../models/producto');
+var Bodega = require('../models/bodega');
+
 var fs = require('fs');
 var path = require('path');
 
@@ -8,31 +10,30 @@ const registro_producto_admin = async function(req,res){
     if(req.user){
         if(req.user.role == 'admin'){
             let data = req.body;
-
-            var img_path = req.files.portada.path
-            var name = img_path.split('\\')
-            var portada_name = name[2];
             
+            var img_path = req.files.portada.path;
+            var name = img_path.split('\\');
+            var portada_name = name[2];
+
             data.slug = data.titulo.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
             data.portada = portada_name;
-            let reg = await Producto.create(data)
+            let reg = await Producto.create(data);
 
-            res.status(200).send({data:reg});
+            let bodega = await Bodega.create({
+                admin: req.user.sub,
+                cantidad: data.stock,
+                productor: 'Primer registro',
+                producto: reg._id
+            });
+
+            res.status(200).send({data:reg,bodega:bodega});
 
         }else{
             res.status(500).send({message: 'NoAccess'});
-
-
         }
-
-
     }else{
         res.status(500).send({message: 'NoAccess'});
-
-
     }
-
-
 }
 
 const listar_productos_admin = async function(req,res){
@@ -184,6 +185,54 @@ const eliminar_producto_admin = async function(req,res){
     }
 }
 
+const listar_bodega_producto_admin = async function(req,res){
+
+    if(req.user){
+        if(req.user.role =='admin'){
+            
+            var id = req.params['id'];
+
+            var reg = await Bodega.find({producto: id}).populate('admin').sort({createdAt:-1});
+            res.status(200).send({data:reg});
+            
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+        }
+    }else{
+        res.status(500).send({message: 'NoAccess'});
+    }
+}
+
+const eliminar_bodega_producto_admin = async function(req,res){
+    if(req.user){
+        if(req.user.role =='admin'){
+            //OBTENER ID DEL INVENTARIO
+            var id = req.params['id'];
+
+            //ELIMINAR BODEGA
+           let reg = await Bodega.findByIdAndRemove({_id:id});
+
+           //OBTENER EL REGISTRO DE PRODUCTO
+           let prod = await Producto.findById({_id:reg.producto});
+
+           //CALCULAR EL NUEVO STOCK
+           let nuevo_stock = parseInt(prod.stock) - parseInt(reg.cantidad);
+
+           //ACTUALICACION DEL NUEVO STOCK AL PRODUCTO
+           let producto = await Producto.findByIdAndUpdate({_id:reg.producto},{
+            stock: nuevo_stock
+           })
+
+           res.status(200).send({data:producto});
+            
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+        }
+    }else{
+        res.status(500).send({message: 'NoAccess'});
+    }
+}
+
 module.exports = {
 
 registro_producto_admin,
@@ -191,6 +240,8 @@ listar_productos_admin,
 obtener_portada,
 obtener_producto_admin,
 actualizar_producto_admin,
-eliminar_producto_admin
+eliminar_producto_admin,
+listar_bodega_producto_admin,
+eliminar_bodega_producto_admin
 
 }

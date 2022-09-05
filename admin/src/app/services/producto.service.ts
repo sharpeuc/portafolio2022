@@ -71,7 +71,17 @@ eliminar_producto_admin(id:any, token:any):Observable<any>{
   return this._http.delete(this.url+'eliminar_producto_admin/'+id,{headers:headers});
 } 
 
-  }  
+listar_bodega_producto_admin(id:any, token:any):Observable<any>{
+  let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+  return this._http.get(this.url+'listar_bodega_producto_admin/'+id,{headers:headers});
+} 
+
+eliminar_bodega_producto_admin(id:any, token:any):Observable<any>{
+  let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+  return this._http.delete(this.url+'eliminar_bodega_producto_admin/'+id,{headers:headers});
+} 
+
+}  
   
 
 
