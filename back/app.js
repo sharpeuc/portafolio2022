@@ -14,7 +14,10 @@ var producto_route = require('./routes/producto');
 
 
 
-
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/feria',(err, res)=>{

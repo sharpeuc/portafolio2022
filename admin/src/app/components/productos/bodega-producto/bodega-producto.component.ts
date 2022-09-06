@@ -14,9 +14,11 @@ export class BodegaProductoComponent implements OnInit {
 
   public id:any;
   public token:any;
+  public _iduser:any;
   public producto: any = {};
   public bodegas: Array<any> = [];
   public load_btn = false;
+  public bodega: any = {};
 
   constructor(
     private _route: ActivatedRoute,
@@ -25,6 +27,8 @@ export class BodegaProductoComponent implements OnInit {
   ) {
 
     this.token = localStorage.getItem('token');
+    this._iduser = localStorage.getItem('_id');
+    console.log(this._iduser);
    }
 
   ngOnInit(): void {
@@ -33,7 +37,7 @@ export class BodegaProductoComponent implements OnInit {
 
       params=>{
         this.id = params['id'];
-        console.log(this.id);
+        
         this._productoService.obtener_producto_admin(this.id,this.token).subscribe(
           response=>{
             if(response.data == undefined){
@@ -96,11 +100,11 @@ export class BodegaProductoComponent implements OnInit {
         this._productoService.listar_bodega_producto_admin(this.producto._id,this.token).subscribe(
           response=>{
              this.bodegas = response.data;
-             console.log(this.bodegas);
+             
              
           },
           error=>{
-           console.log(error);
+           
            
           }
         )
@@ -120,5 +124,69 @@ export class BodegaProductoComponent implements OnInit {
         this.load_btn = false;
       }
     )
+    }
+  
+    registro_bodega(bodegaForm:any){
+      if(bodegaForm.valid){
+        
+        let data = {
+
+          producto: this.producto._id,
+          cantidad: bodegaForm.value.cantidad,
+          admin: this._iduser,
+          productor: bodegaForm.value.productor
+
+        }
+
+        this._productoService.registro_bodega_producto_admin(data, this.token).subscribe(
+
+          response=>{
+
+            iziToast.show({
+              title: 'Success',
+              titleColor: 'green',
+              class: 'text-success',
+              position: 'topLeft',
+              message: 'se agregó el nuevo stock al producto',
+              messageColor: 'blue'
+            })
+            
+            this._productoService.listar_bodega_producto_admin(this.producto._id, this.token).subscribe(
+
+              response=>{
+                this.bodegas = response.data;
+
+
+              },
+
+              error=>{
+                console.log(error);
+
+
+              }
+            
+            )
+            
+            
+          },
+          error=>{
+            console.log(error);
+          }
+      
+      )
+
+      }else{
+
+        iziToast.show({
+          title: 'Error',
+          titleColor: 'red',
+          class: 'text-danger',
+          position: 'topLeft',
+          message: 'los datos del formulario no son válidos',
+          messageColor: 'blue'
+        });
+    
+      }
+
     }
   }

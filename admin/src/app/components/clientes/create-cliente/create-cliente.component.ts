@@ -55,7 +55,8 @@ export class CreateClienteComponent implements OnInit {
             f_nacimiento: '',
             telefono: '',
             rut: '',
-            email: ''
+            email: '',
+            tipo: ''
 
           }
           

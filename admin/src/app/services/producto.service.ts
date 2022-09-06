@@ -80,8 +80,10 @@ eliminar_bodega_producto_admin(id:any, token:any):Observable<any>{
   let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
   return this._http.delete(this.url+'eliminar_bodega_producto_admin/'+id,{headers:headers});
 } 
-
+registro_bodega_producto_admin(data:any,token:any):Observable<any>{
+  let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+  return this._http.post(this.url+'registro_bodega_producto_admin/',data,{headers:headers});
 }  
   
 
-
+}

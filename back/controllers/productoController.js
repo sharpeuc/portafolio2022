@@ -233,6 +233,33 @@ const eliminar_bodega_producto_admin = async function(req,res){
     }
 }
 
+const registro_bodega_producto_admin = async function(req, res){
+    if(req.user){
+        if(req.user.role =='admin'){
+
+            let data = req.body;
+
+            let reg = await Bodega.create(data);
+            
+            let prod = await Producto.findById({_id:reg.producto});
+
+            let nuevo_stock = parseInt(prod.stock) + parseInt(reg.cantidad);
+
+            let producto = await Producto.findByIdAndUpdate({_id:reg.producto},{
+                stock: nuevo_stock
+               })
+            
+            res.status(200).send({data:reg});
+            
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+        }
+    }else{
+        res.status(500).send({message: 'NoAccess'});
+    }
+
+}
+
 module.exports = {
 
 registro_producto_admin,
@@ -242,6 +269,7 @@ obtener_producto_admin,
 actualizar_producto_admin,
 eliminar_producto_admin,
 listar_bodega_producto_admin,
-eliminar_bodega_producto_admin
+eliminar_bodega_producto_admin,
+registro_bodega_producto_admin
 
 }

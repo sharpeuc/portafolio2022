@@ -1,7 +1,7 @@
 <app-sidebar></app-sidebar>
   <!-- Page title-->
   <div class="border-bottom pt-5 mt-2 mb-5">
-    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Productos</h1>
+    <h1 class="mt-2 mt-md-4 mb-3 pt-5">Bodega producto</h1>
     <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
       <p class="text-muted">Este módulo lista todos los productos en bodega de la feria virtual.</p>
       <p class="font-size-sm font-weight-medium pl-md-4"><a class="text-nowrap" [routerLink]="['/panel/productos']">Regresar<i class="cxi-angle-right font-size-base align-middle ml-1"></i></a></p>
@@ -26,6 +26,16 @@
         </div>
         <div class="card-header">
             <div class="row">
+            <div class="col-12">
+              <form #bodegaForm ="ngForm" (ngSubmit)="registro_bodega(bodegaForm)" class="form-inline">
+                <label class="sr-only">Cantidad</label>
+                <input required class="form-control mb-3 mr-sm-4" type="text" placeholder="Cantidad" name="cantidad" [(ngModel)] = "bodega.cantidad">
+                <label class="sr-only">Productor</label>
+                <input required class="form-control mb-3 mr-sm-4" type="text" placeholder="Productor" name="productor" [(ngModel)] = "bodega.productor">
+              
+              <button class="btn btn-primary mb-3" type="submit">Ingresar</button>
+              </form>
+            </div>
             </div>
         </div>
         <div class="card-body">
