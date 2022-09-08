@@ -20,6 +20,7 @@ import { BodegaProductoComponent } from './components/productos/bodega-producto/
 import { CreateTicketComponent } from './components/tickets/create-ticket/create-ticket.component';
 import { IndexTicketComponent } from './components/tickets/index-ticket/index-ticket.component';
 import { UpdateTicketComponent } from './components/tickets/update-ticket/update-ticket.component';
+import { ConfigComponent } from './components/config/config.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UpdateTicketComponent } from './components/tickets/update-ticket/update
     BodegaProductoComponent,
     CreateTicketComponent,
     IndexTicketComponent,
-    UpdateTicketComponent
+    UpdateTicketComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

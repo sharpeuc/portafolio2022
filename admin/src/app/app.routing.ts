@@ -13,6 +13,7 @@ import { BodegaProductoComponent } from "./components/productos/bodega-producto/
 import { CreateTicketComponent } from "./components/tickets/create-ticket/create-ticket.component";
 import { IndexTicketComponent } from "./components/tickets/index-ticket/index-ticket.component";
 import { UpdateTicketComponent } from "./components/tickets/update-ticket/update-ticket.component";
+import { ConfigComponent } from "./components/config/config.component";
 
 const appRoute: Routes = [
     {path:'', redirectTo: 'inicio', pathMatch: 'full'},
@@ -34,7 +35,7 @@ const appRoute: Routes = [
         {path: 'tickets', component: IndexTicketComponent, canActivate: [AdminGuard]},
         {path: 'tickets/:id', component: UpdateTicketComponent, canActivate: [AdminGuard]},
 
-
+        {path: 'configuraciones', component: ConfigComponent, canActivate: [AdminGuard]},
 
 
     ]},
