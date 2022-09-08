@@ -21,7 +21,7 @@ export class ProductoService {
 
    }
   
-   registro_producto_admin(data:any,file:any,token:any):Observable<any>{
+registro_producto_admin(data:any,file:any,token:any):Observable<any>{
     
     let headers = new HttpHeaders({'Authorization': token})
 
