@@ -329,6 +329,33 @@ const agregar_imagen_galeria_admin = async function(req,res){
 
 }
 
+const eliminar_imagen_galeria_admin = async function(req,res){
+    if(req.user){
+        if(req.user.role == 'admin'){
+            let id = req.params['id'];
+            let data = req.body;
+
+            let reg = await Producto.findByIdAndUpdate({_id:id},{$pull:{galeria:{_id: data._id}}});
+
+            
+            res.status(200).send({data:reg});
+           
+        }else{
+            res.status(500).send({message: 'NoAccess'});
+
+
+        }
+
+
+    }else{
+        res.status(500).send({message: 'NoAccess'});
+
+
+    }
+
+
+}
+
 module.exports = {
 
 registro_producto_admin,
@@ -341,6 +368,7 @@ listar_bodega_producto_admin,
 eliminar_bodega_producto_admin,
 registro_bodega_producto_admin,
 actualizar_producto_variedades_admin,
-agregar_imagen_galeria_admin
+agregar_imagen_galeria_admin,
+eliminar_imagen_galeria_admin
 
 }

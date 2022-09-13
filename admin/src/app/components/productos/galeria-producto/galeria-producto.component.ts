@@ -20,6 +20,9 @@ export class GaleriaProductoComponent implements OnInit {
   public file: any = undefined;
   public load_btn = false;
   public url: any;
+  public load_data = true;
+  public load_btn_eliminar = false;
+  
   
   constructor(
     private _route: ActivatedRoute,
@@ -33,6 +36,8 @@ export class GaleriaProductoComponent implements OnInit {
     
           params=>{
             this.id = params['id'];
+
+            this.init_data();
             
             this._productoService.obtener_producto_admin(this.id,this.token).subscribe(
               response=>{
@@ -61,6 +66,35 @@ export class GaleriaProductoComponent implements OnInit {
                 }
         );
               }
+  
+  init_data(){
+
+    this._productoService.obtener_producto_admin(this.id,this.token).subscribe(
+      response=>{
+        if(response.data == undefined){
+          this.producto = undefined;
+
+
+        }else{
+
+          this.producto = response.data
+          
+
+        }
+        console.log(this.producto);
+
+            },
+
+            error=>{
+              console.log(error);
+
+
+            }
+          
+          )
+  }
+
+  
   ngOnInit(): void {
   }
 
@@ -140,8 +174,8 @@ export class GaleriaProductoComponent implements OnInit {
       this._productoService.agregar_imagen_galeria_admin(this.id, data, this.token).subscribe(
 
         response=>{
-          console.log(response);
-
+          this.init_data();
+          $('#input-img').val('');
         }
       )
 
@@ -158,6 +192,50 @@ export class GaleriaProductoComponent implements OnInit {
 
     }
 
+  }
+
+  eliminar(id:any){
+    this.load_btn_eliminar = true;
+    this._productoService.eliminar_imagen_galeria_admin(this.id,{_id:id}, this.token).subscribe(
+  
+      response=>{
+        iziToast.show({
+          title: 'Success',
+          titleColor: 'green',
+          class: 'text-success',
+          position: 'topLeft',
+          message: 'imagen eliminada correctamente',
+          messageColor: 'blue'
+        })
+  
+        $('#delete-' + id).modal('hide');
+        $('.modal-backdrop').removeClass('show');
+  
+        this.load_btn_eliminar = false;
+      
+      this.init_data();
+      
+      },
+  
+      error=>{
+        iziToast.show({
+          title: 'Success',
+          titleColor: 'green',
+          class: 'text-success',
+          position: 'topLeft',
+          message: 'ocurrió un error en el servidor',
+          messageColor: 'blue'
+        })
+        
+        console.log(error);
+        this.load_btn = false;
+  
+  
+      }
+  
+  
+    )
+  
   }
 
 }
