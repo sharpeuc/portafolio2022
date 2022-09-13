@@ -14,6 +14,8 @@ import { CreateTicketComponent } from "./components/tickets/create-ticket/create
 import { IndexTicketComponent } from "./components/tickets/index-ticket/index-ticket.component";
 import { UpdateTicketComponent } from "./components/tickets/update-ticket/update-ticket.component";
 import { ConfigComponent } from "./components/config/config.component";
+import { VariedadProductoComponent } from "./components/productos/variedad-producto/variedad-producto.component";
+import { GaleriaProductoComponent } from "./components/productos/galeria-producto/galeria-producto.component";
 
 const appRoute: Routes = [
     {path:'', redirectTo: 'inicio', pathMatch: 'full'},
@@ -29,6 +31,9 @@ const appRoute: Routes = [
         {path: 'productos', component: IndexProductoComponent, canActivate: [AdminGuard]},
         {path: 'productos/:id', component: UpdateProductoComponent, canActivate: [AdminGuard]},
         {path: 'productos/bodega/:id', component: BodegaProductoComponent, canActivate: [AdminGuard]},
+        {path: 'productos/variedades/:id', component: VariedadProductoComponent, canActivate: [AdminGuard]},
+        {path: 'productos/galeria/:id', component: GaleriaProductoComponent, canActivate: [AdminGuard]},
+
 
         
         {path: 'tickets/registro', component: CreateTicketComponent, canActivate: [AdminGuard]},

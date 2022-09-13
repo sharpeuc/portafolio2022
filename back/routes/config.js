@@ -12,6 +12,7 @@ var path = multiparty({uploadDir: './uploads/configuraciones'});
 api.put('/actualiza_config_admin/:id',[auth.auth, path],configController.actualiza_config_admin);
 api.get('/obtener_config_admin',[auth.auth, path],configController.obtener_config_admin);
 api.get('/obtener_logo/:img',configController.obtener_logo);
+api.get('/obtener_config_publico',configController.obtener_config_publico);
 
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
+import { AdminService } from 'src/app/services/admin.service';
 declare var iziToast:any;
 declare var jquery: any;
 declare var $:any;
@@ -21,12 +22,13 @@ export class UpdateProductoComponent implements OnInit {
   public token: any;
   public url;
   public file: any = undefined;
-  
+  public config_global:any = {};
 
   
   constructor(
     private _route: ActivatedRoute,
     private _productoService: ProductoService,
+    private _adminService: AdminService,
     private _router:Router
 
   ) {
@@ -38,6 +40,16 @@ export class UpdateProductoComponent implements OnInit {
     }
     this.token = localStorage.getItem('token');
     this.url = GLOBAL.url;
+
+    this._adminService.obtener_config_publico().subscribe(
+
+      response=>{
+        this.config_global = response.data;
+        console.log(this.config_global);
+
+
+      }
+    )
    }
   ngOnInit(): void {
   

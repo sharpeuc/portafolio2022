@@ -21,6 +21,8 @@ import { CreateTicketComponent } from './components/tickets/create-ticket/create
 import { IndexTicketComponent } from './components/tickets/index-ticket/index-ticket.component';
 import { UpdateTicketComponent } from './components/tickets/update-ticket/update-ticket.component';
 import { ConfigComponent } from './components/config/config.component';
+import { VariedadProductoComponent } from './components/productos/variedad-producto/variedad-producto.component';
+import { GaleriaProductoComponent } from './components/productos/galeria-producto/galeria-producto.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ConfigComponent } from './components/config/config.component';
     CreateTicketComponent,
     IndexTicketComponent,
     UpdateTicketComponent,
-    ConfigComponent
+    ConfigComponent,
+    VariedadProductoComponent,
+    GaleriaProductoComponent
   ],
   imports: [
     BrowserModule,

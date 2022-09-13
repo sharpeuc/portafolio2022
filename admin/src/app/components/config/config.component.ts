@@ -196,4 +196,10 @@ ngDoCheck():void{
   $('.cs-file-drop-preview').html("<img src="+this.imgSelect+">");
 }
 
+eliminar_categoria(idx:any){
+
+  this.config.categorias.splice(idx, 1);
+
+}
+
 }
