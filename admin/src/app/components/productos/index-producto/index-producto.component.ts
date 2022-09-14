@@ -166,7 +166,7 @@ eliminar(id:any){
 
 }
 
-dowload_excel(){
+download_excel(){
 
   let workbook = new Workbook();
   let worksheet = workbook.addWorksheet("Reporte de productos");

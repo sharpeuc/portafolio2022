@@ -206,10 +206,10 @@ export class BodegaProductoComponent implements OnInit {
       }
 
     }
-    dowload_excel(){
+    download_excel(){
 
       let workbook = new Workbook();
-      let worksheet = workbook.addWorksheet("Reporte de productos");
+      let worksheet = workbook.addWorksheet("Reporte de productos en bodega");
     
       worksheet.addRow(undefined);
       for (let x1 of this.arr_bodega){
