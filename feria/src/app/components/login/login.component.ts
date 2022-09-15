@@ -18,7 +18,16 @@ export class LoginComponent implements OnInit {
     private _clienteService: ClienteService,
     private _router: Router
 
-  ) { }
+  ) {
+
+    this.token = localStorage.getItem('token')
+
+    if(this.token){
+      this._router.navigate(['/']);
+
+    }
+   
+  }
 
   ngOnInit(): void {
   }
@@ -51,6 +60,9 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('token', response.token);
             localStorage.setItem('_id', response.data._id);
 
+            
+            
+            
             this._router.navigate(['/']);
 
           }
