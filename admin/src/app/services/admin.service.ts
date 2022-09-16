@@ -53,6 +53,15 @@ public url: any;
    
    console.log(decodedToken);
    
+   
+   if(helper.isTokenExpired(token)){
+    localStorage.clear();
+    return false;
+
+
+   }
+   
+   
    if(!decodedToken){
       console.log('no es válido');
       localStorage.removeItem('token');
