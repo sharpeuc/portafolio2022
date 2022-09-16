@@ -10,7 +10,7 @@ export class SiderbarComponent implements OnInit {
 
   public token: any;
   public user: any = undefined;
-  public user_lc : any = {};
+  public user_lc : any = undefined;
   public id: any;
   
   
