@@ -22,7 +22,7 @@ api.get('/listar_bodega_producto_admin/:id', auth.auth,productoController.listar
 api.delete('/eliminar_bodega_producto_admin/:id',auth.auth,productoController.eliminar_bodega_producto_admin);
 api.post('/registro_bodega_producto_admin',auth.auth,productoController.registro_bodega_producto_admin);
 
-
+api.get('/listar_productos_publico/:filtro?',productoController.listar_productos_publico);
 
 
 

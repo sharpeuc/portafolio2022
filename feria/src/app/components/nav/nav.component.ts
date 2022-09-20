@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
   public id:any;
   public user: any = undefined;
   public user_lc: any = undefined;
+  public config_global: any = {};
 
   constructor(
   
@@ -23,6 +24,14 @@ export class NavComponent implements OnInit {
 
     this.token = localStorage.getItem('token');
     this.id = localStorage.getItem('_id')
+
+    this._clienteService.obtener_config_publico().subscribe(
+
+      response=>{
+        this.config_global = response.data;
+
+      }
+    )
 
    if(this.token){
 
@@ -43,7 +52,6 @@ export class NavComponent implements OnInit {
       },
 
       error=>{
-        console.log(error);
         this.user = undefined;
 
 
