@@ -16,7 +16,7 @@ const appRoute: Routes = [
     
     {path: 'productos', component: IndexProductoComponent},
     {path: 'productos/categoria/:categoria', component: IndexProductoComponent},
-    {path: 'productos/:slug', component:MostrarProductoComponent},
+    {path: 'productos/:slug', component: MostrarProductoComponent},
     
 
 ]

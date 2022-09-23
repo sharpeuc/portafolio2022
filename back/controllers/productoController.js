@@ -364,7 +364,21 @@ const listar_productos_publico = async function(req,res){
 
             res.status(200).send({data:reg});
 
-        }
+}
+
+const obtener_productos_slug_publico = async function(req,res){
+
+    var slug = req.params['slug'];
+
+    let reg = await Producto.findOne({slug:slug});
+
+    res.status(200).send({data:reg});
+
+}
+
+
+
+
 module.exports = {
 
 registro_producto_admin,
@@ -379,6 +393,7 @@ registro_bodega_producto_admin,
 actualizar_producto_variedades_admin,
 agregar_imagen_galeria_admin,
 eliminar_imagen_galeria_admin,
-listar_productos_publico
+listar_productos_publico,
+obtener_productos_slug_publico
 
 }
