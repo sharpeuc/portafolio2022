@@ -13,6 +13,7 @@ var admin_route = require('./routes/admin');
 var producto_route = require('./routes/producto');
 var ticket_route = require('./routes/ticket');
 var config_route = require('./routes/config');
+var carrito_route = require('./routes/carrito');
 
 
 
@@ -52,6 +53,7 @@ app.use('/api',admin_route);
 app.use('/api',producto_route);
 app.use('/api',ticket_route);
 app.use('/api',config_route);
+app.use('/api',carrito_route);
 
 
 
