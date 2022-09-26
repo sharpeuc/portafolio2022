@@ -13,7 +13,7 @@ exports.createToken = function(user){
         email: user.email,
         role: user.rol,
         iat: moment().unix(),
-        exp: moment().add(14,'days').unix()
+        exp: moment().add(30,'days').unix()
 
 
     }
