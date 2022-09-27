@@ -3,6 +3,7 @@ import {Observable} from 'rxjs'
 import { GLOBAL} from './GLOBAL';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,4 +36,14 @@ export class GuestService {
 
    }
  
+   get_regiones(): Observable<any>{
+
+    return this._http.get('./assets/regiones1.json');
+
+   }
+   
+   get_provincias(): Observable<any>{
+
+    return this._http.get('./assets/provincias.json');
+   }
   }

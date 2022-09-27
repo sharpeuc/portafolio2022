@@ -5,6 +5,7 @@ import { GLOBAL } from 'src/app/services/GLOBAL';
 declare var noUiSlider:any;
 declare var $:any;
 declare var iziToast: any;
+import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-index-producto',
@@ -32,6 +33,7 @@ export class IndexProductoComponent implements OnInit {
 
   public btn_cart = false;
   public token: any;
+  public socket = io('http://localhost:4201');
  
 
   
@@ -350,7 +352,7 @@ agregar_producto(producto:any){
             position: 'topRight',
             message: 'Se agregó el producto al carrito.'
         });
-        
+        this.socket.emit('add-carrito-add',{data: true});
         this.btn_cart =false;
       }
     }

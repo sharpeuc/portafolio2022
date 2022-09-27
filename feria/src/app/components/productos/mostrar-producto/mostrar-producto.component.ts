@@ -6,6 +6,7 @@ import { GuestService } from 'src/app/services/guest.service';
 declare var tns:any;
 declare var lightGallery:any;
 declare var iziToast:any;
+import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-mostrar-producto',
@@ -26,6 +27,7 @@ export class MostrarProductoComponent implements OnInit {
   };
 
   public btn_cart = false;
+  public socket = io('http://localhost:4201');
 
   constructor(
   private _route: ActivatedRoute,
@@ -154,7 +156,7 @@ export class MostrarProductoComponent implements OnInit {
                    position: 'topRight',
                    message: 'Se agregó el producto al carrito.'
                });
-               
+               this.socket.emit('add-carrito-add',{data: true});
                this.btn_cart =false;
              }
            }
