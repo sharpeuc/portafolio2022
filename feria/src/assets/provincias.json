@@ -2,284 +2,284 @@
 [
   
   {
-    "id": "0101",
+    "id": "1201",
     "name": "Antártica Chilena",
-    "department_id": "01"
-  },
-  {
-    "id": "0102",
-    "name": "Antofagasta",
-    "department_id": "01"
-  },
-  {
-    "id": "0103",
-    "name": "Arauco ",
-    "department_id": "01"
-  },
-  {
-    "id": "0104",
-    "name": "Arica",
-    "department_id": "01"
-  },
-  {
-    "id": "0105",
-    "name": " Aysén",
-    "department_id": "01"
-  },
-  {
-    "id": "0106",
-    "name": "Biobío",
-    "department_id": "01"
-  },
-  {
-    "id": "0107",
-    "name": "Cachapoal",
-    "department_id": "01"
+    "department_id": "12"
   },
   {
     "id": "0201",
-    "name": "Capitán Prat",
+    "name": "Antofagasta",
     "department_id": "02"
+  },
+  {
+    "id": "0801",
+    "name": "Arauco ",
+    "department_id": "08"
+  },
+  {
+    "id": "1501",
+    "name": "Arica",
+    "department_id": "15"
+  },
+  {
+    "id": "1101",
+    "name": " Aysén",
+    "department_id": "11"
+  },
+  {
+    "id": "0802",
+    "name": "Biobío",
+    "department_id": "08"
+  },
+  {
+    "id": "0601",
+    "name": "Cachapoal",
+    "department_id": "06"
+  },
+  {
+    "id": "1102",
+    "name": "Capitán Prat",
+    "department_id": "11"
+  },
+  {
+    "id": "0602",
+    "name": "Cardenal Caro",
+    "department_id": "06"
+  },
+  {
+    "id": "0701",
+    "name": "Cauquenes",
+    "department_id": "07"
+  },
+  {
+    "id": "0901",
+    "name": "Cautín",
+    "department_id": "09"
+  },
+  {
+    "id": "1301",
+    "name": "Chacabuco",
+    "department_id": "13"
+  },
+  {
+    "id": "0301",
+    "name": "Chañaral",
+    "department_id": "03"
+  },
+  {
+    "id": "1001",
+    "name": "Chiloé",
+    "department_id": "10"
+  },
+  {
+    "id": "0403",
+    "name": "Choapa",
+    "department_id": "04"
+  },
+  {
+    "id": "0603",
+    "name": "Colchagua",
+    "department_id": "06"
+  },
+  {
+    "id": "0803",
+    "name": "Concepción",
+    "department_id": "08"
+  },
+  {
+    "id": "0303",
+    "name": "Copiapó",
+    "department_id": "03"
+  },
+  {
+    "id": "1302",
+    "name": "Cordillera",
+    "department_id": "13"
+  },
+  {
+    "id": "1103",
+    "name": "Coyhaique ",
+    "department_id": "11"
+  },
+  {
+    "id": "0702",
+    "name": " Curicó",
+    "department_id": "07"
+  },
+  {
+    "id": "1601",
+    "name": "Diguillín",
+    "department_id": "16"
   },
   {
     "id": "0202",
-    "name": "Cardenal Caro",
-    "department_id": "02"
-  },
-  {
-    "id": "0203",
-    "name": "Cauquenes",
-    "department_id": "02"
-  },
-  {
-    "id": "0204",
-    "name": "Cautín",
-    "department_id": "02"
-  },
-  {
-    "id": "0205",
-    "name": "Chacabuco",
-    "department_id": "02"
-  },
-  {
-    "id": "0206",
-    "name": "Chañaral",
-    "department_id": "02"
-  },
-  {
-    "id": "0207",
-    "name": "Chiloé",
-    "department_id": "02"
-  },
-  {
-    "id": "0208",
-    "name": "Choapa",
-    "department_id": "02"
-  },
-  {
-    "id": "0209",
-    "name": "Colchagua (",
-    "department_id": "02"
-  },
-  {
-    "id": "0210",
-    "name": "Concepción",
-    "department_id": "02"
-  },
-  {
-    "id": "0211",
-    "name": "Copiapó",
-    "department_id": "02"
-  },
-  {
-    "id": "0212",
-    "name": "Cordillera",
-    "department_id": "02"
-  },
-  {
-    "id": "0213",
-    "name": "Coyhaique ",
-    "department_id": "02"
-  },
-  {
-    "id": "0214",
-    "name": " Curicó",
-    "department_id": "02"
-  },
-  {
-    "id": "0215",
-    "name": "Diguillín",
-    "department_id": "02"
-  },
-  {
-    "id": "0216",
     "name": "El Loa",
     "department_id": "02"
   },
   {
-    "id": "0217",
+    "id": "0401",
     "name": "Elqui",
-    "department_id": "02"
+    "department_id": "04"
   },
   {
-    "id": "0218",
+    "id": "1104",
     "name": "General Carrera",
-    "department_id": "02"
-  },
-  {
-    "id": "0219",
-    "name": "Huasco",
-    "department_id": "02"
-  },
-  {
-    "id": "0220",
-    "name": "Iquique",
-    "department_id": "02"
-  },
-  {
-    "id": "0301",
-    "name": "Isla de Pascua",
-    "department_id": "03"
+    "department_id": "11"
   },
   {
     "id": "0302",
-    "name": "Itata",
+    "name": "Huasco",
     "department_id": "03"
   },
   {
-    "id": "0303",
-    "name": "Limarí",
-    "department_id": "03"
-  },
-  {
-    "id": "0304",
-    "name": "Linares",
-    "department_id": "03"
-  },
-  {
-    "id": "0305",
-    "name": " Llanquihue",
-    "department_id": "03"
-  },
-  {
-    "id": "0306",
-    "name": "Los Andes",
-    "department_id": "03"
-  },
-  {
-    "id": "0307",
-    "name": "Magallanes ",
-    "department_id": "03"
-  },
-  {
-    "id": "0401",
-    "name": "Maipo",
-    "department_id": "04"
-  },
-  {
-    "id": "0402",
-    "name": "Malleco",
-    "department_id": "04"
-  },
-  {
-    "id": "0403",
-    "name": "Marga Marga",
-    "department_id": "04"
-  },
-  {
-    "id": "0404",
-    "name": " Melipilla",
-    "department_id": "04"
-  },
-  {
-    "id": "0405",
-    "name": "Osorno",
-    "department_id": "04"
-  },
-  {
-    "id": "0406",
-    "name": "Palena",
-    "department_id": "04"
-  },
-  {
-    "id": "0407",
-    "name": " Parinacota",
-    "department_id": "04"
-  },
-  {
-    "id": "0408",
-    "name": "Petorca",
-    "department_id": "04"
+    "id": "0101",
+    "name": "Iquique",
+    "department_id": "01"
   },
   {
     "id": "0501",
-    "name": "Punilla",
+    "name": "Isla de Pascua",
     "department_id": "05"
   },
   {
+    "id": "1603",
+    "name": "Itata",
+    "department_id": "16"
+  },
+  {
+    "id": "0402",
+    "name": "Limarí",
+    "department_id": "04"
+  },
+  {
+    "id": "0703",
+    "name": "Linares",
+    "department_id": "07"
+  },
+  {
+    "id": "1002",
+    "name": " Llanquihue",
+    "department_id": "10"
+  },
+  {
     "id": "0502",
+    "name": "Los Andes",
+    "department_id": "05"
+  },
+  {
+    "id": "1202",
+    "name": "Magallanes ",
+    "department_id": "12"
+  },
+  {
+    "id": "1303",
+    "name": "Maipo",
+    "department_id": "13"
+  },
+  {
+    "id": "0902",
+    "name": "Malleco",
+    "department_id": "09"
+  },
+  {
+    "id": "0508",
+    "name": "Marga Marga",
+    "department_id": "05"
+  },
+  {
+    "id": "1304",
+    "name": " Melipilla",
+    "department_id": "13"
+  },
+  {
+    "id": "1003",
+    "name": "Osorno",
+    "department_id": "10"
+  },
+  {
+    "id": "1004",
+    "name": "Palena",
+    "department_id": "10"
+  },
+  {
+    "id": "1502",
+    "name": " Parinacota",
+    "department_id": "15"
+  },
+  {
+    "id": "0504",
+    "name": "Petorca",
+    "department_id": "05"
+  },
+  {
+    "id": "1602",
+    "name": "Punilla",
+    "department_id": "16"
+  },
+  {
+    "id": "0505",
     "name": "Quillota ",
     "department_id": "05"
   },
   {
-    "id": "0503",
+    "id": "1402",
     "name": "Ranco",
-    "department_id": "05"
+    "department_id": "14"
   },
   {
-    "id": "0504",
+    "id": "0506",
     "name": "San Antonio",
     "department_id": "05"
   },
   {
-    "id": "0505",
+    "id": "0507",
     "name": "San Felipe de Aconcagua",
     "department_id": "05"
   },
   {
-    "id": "0506",
+    "id": "1305",
     "name": "Santiago",
-    "department_id": "05"
+    "department_id": "13"
   },
   {
-    "id": "0507",
+    "id": "1306",
     "name": "Talagante",
-    "department_id": "05"
+    "department_id": "13"
   },
   {
-    "id": "0508",
+    "id": "0704",
     "name": "Talca ",
-    "department_id": "05"
+    "department_id": "07"
   },
   {
-    "id": "0509",
+    "id": "0102",
     "name": "Tamarugal",
-    "department_id": "05"
+    "department_id": "01"
   },
   {
-    "id": "0510",
+    "id": "1203",
     "name": "Tierra del Fuego",
-    "department_id": "05"
+    "department_id": "12"
   },
   {
-    "id": "0511",
+    "id": "0203",
     "name": "Tocopilla",
-    "department_id": "05"
+    "department_id": "02"
   },
   {
-    "id": "0601",
+    "id": "1204",
     "name": "Última Esperanza",
-    "department_id": "06"
+    "department_id": "12"
   },
   {
-    "id": "0602",
+    "id": "1401",
     "name": "Valdivia",
-    "department_id": "06"
+    "department_id": "14"
   },
   {
-    "id": "0603",
+    "id": "0503",
     "name": "Valparaíso",
- 	"department_id": "06"
+ 	"department_id": "05"
 
   }
 

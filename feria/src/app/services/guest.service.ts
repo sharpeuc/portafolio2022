@@ -46,4 +46,11 @@ export class GuestService {
 
     return this._http.get('./assets/provincias.json');
    }
+  
+  
+   get_comunas(): Observable<any>{
+
+    return this._http.get('./assets/comunas.json');
+   }
+  
   }

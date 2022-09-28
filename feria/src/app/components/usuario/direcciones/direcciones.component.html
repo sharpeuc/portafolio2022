@@ -96,16 +96,17 @@
 
                     <div class="col-sm-6 form-group">
                         <label for="ac-fn">Provincia</label>
-                        <select id="sl-provincia" name="provincia" [(ngModel)]="direccion.provincia" class="custom-select custom-select-lg" disabled="">
+                        <select id="sl-provincia" name="provincia" [(ngModel)]="direccion.provincia" class="custom-select custom-select-lg" disabled (change)="select_provincia()">
                             <option value="" selected disabled>Seleccionar</option>
                             <option value="{{item.id}}" *ngFor="let item of provincias">{{item.name}}</option>
                         </select>
                     </div>
                       
                     <div class="col-sm-6 form-group">
-                        <label for="ac-fn">Ciudad</label>
-                        <select id="sl-ciudad" name="ciudad" [(ngModel)]="direccion.ciudad" class="custom-select custom-select-lg" disabled="">
+                        <label for="ac-fn">Comuna</label>
+                        <select id="sl-comuna" name="comuna" [(ngModel)]="direccion.comuna" class="custom-select custom-select-lg" disabled="">
                             <option value="" selected disabled>Seleccionar</option>
+                            <option value="{{item.id}}" *ngFor="let item of comunas">{{item.name}}</option>
                         </select>
                     </div>
             

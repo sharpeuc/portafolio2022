@@ -23,6 +23,7 @@ export class DireccionesComponent implements OnInit {
 
   public regiones: Array<any> = [];
   public provincias: Array<any> = [];
+  public comunas: Array<any> = [];
 
 
   constructor(
@@ -31,8 +32,6 @@ export class DireccionesComponent implements OnInit {
 
   ) { 
     this.token = localStorage.getItem('token');
-
-   
 
   }
 
@@ -46,9 +45,12 @@ select_pais(){
     this._guestService.get_regiones().subscribe(
       response=>{
         console.log(response);
-        response.forEach((element:{ name: any; }) => {
+        response.forEach((element:{
+          id: any; name: any; 
+}) => {
           this.regiones.push({
 
+            id: element.id,
             name: element.name
           })
           
@@ -60,8 +62,13 @@ select_pais(){
   }else{
 
   $('#sl-region').prop('disabled', true);
+  $('#sl-provincia').prop('disabled', true);
    
   this.regiones = [];
+  this.provincias = [];
+
+  this.direccion.region = '';
+  this.direccion.provincias = '';
   }
 }
 
@@ -91,6 +98,35 @@ select_region(){
 
   );
 
+}
+
+select_provincia(){
+
+  this.comunas = [];
+  $('#sl-comuna').prop('disabled', false);
+  this._guestService.get_comunas().subscribe(
+    response=>{
+      
+      response.forEach((element: any) =>{
+
+        if(element.province_id == this.direccion.provincia){
+
+          this.comunas.push(
+
+            element
+          )
+
+
+        }
+    
+  });
+
+  console.log(this.comunas);
+    
+  }
+
+
+  );
 }
 
 }
