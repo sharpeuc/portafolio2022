@@ -433,85 +433,85 @@
     "department_id": "13"
   },
   {
-    "id": "130513",
+    "id": "130514",
     "name": "Lo barnechea",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130513",
+    "id": "130515",
     "name": "Lo espejo",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130514",
+    "id": "130516",
     "name": "Lo prado",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130515",
+    "id": "130517",
     "name": "Macul",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130516",
+    "id": "130518",
     "name": "Maipú",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130517",
+    "id": "130519",
     "name": "Ñuñoa",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130518",
+    "id": "130520",
     "name": "Pedro aguirre cerda",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130519",
+    "id": "130521",
     "name": "Peñalolen",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130520",
+    "id": "130522",
     "name": "Providencia",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130521",
+    "id": "130523",
     "name": "Pudahuel",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130522",
+    "id": "130524",
     "name": "Quilicura",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130523",
+    "id": "130525",
     "name": "Quinta normal",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130524",
+    "id": "130526",
     "name": "Vitacura",
     "province_id": "1305",
     "department_id": "13"
   },
   {
-    "id": "130525",
+    "id": "130527",
     "name": "Santiago centro",
     "province_id": "1305",
     "department_id": "13"
@@ -529,10 +529,10 @@
     "department_id": "13"
   },
   {
-    "id": "020105",
+    "id": "130528",
     "name": "Independencia",
-    "province_id": "0201",
-    "department_id": "02"
+    "province_id": "1305",
+    "department_id": "13"
   },
   {
     "id": "130603",
