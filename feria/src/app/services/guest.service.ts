@@ -53,4 +53,9 @@ export class GuestService {
     return this._http.get('./assets/comunas.json');
    }
   
+   get_envios(): Observable<any>{
+
+    return this._http.get('./assets/envios.json');
+   }
+  
   }

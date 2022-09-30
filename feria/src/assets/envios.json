@@ -1,0 +1,26 @@
+[
+
+    {
+
+        "titulo": "envío preferencial",
+        "tiempo": "1 a 2 semanas",
+        "precio": 2000
+
+    },
+
+    {
+
+        "titulo": "envío estándard",
+        "tiempo": "2 a 3 semanas",
+        "precio": 3000
+
+    },
+
+    {
+
+        "titulo": "envío gratis",
+        "tiempo": "1 mes",
+        "precio": 0
+
+    }
+]
