@@ -135,7 +135,6 @@ op_modalcart(){
 }
 
 calcular_carrito(){
-
   this.carrito_arr.forEach(element =>{
     this.subtotal = this.subtotal + parseInt (element.producto.precio);
 });
