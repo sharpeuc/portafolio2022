@@ -3,6 +3,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
 import { io } from 'socket.io-client';
 import { GuestService } from 'src/app/services/guest.service';
+import { Router } from '@angular/router';
 declare var iziToast:any;
 declare var Cleave:any;
 declare var StickySidebar:any;
@@ -38,7 +39,8 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private _clienteService: ClienteService,
-    private _guestService: GuestService
+    private _guestService: GuestService,
+    private _router: Router
 
   ) {
     this.url = GLOBAL.url;
@@ -93,10 +95,10 @@ paypal.Buttons({
 
       return actions.order.create({
         purchase_units : [{
-          description : 'Nombre del pago',
+          description : 'Pago en la feria',
           amount : {
             currency_code : 'USD',
-            value: 999
+            value: this.subtotal
           },
         }]
       });
@@ -114,7 +116,16 @@ paypal.Buttons({
     this._clienteService.registro_compra_cliente(this.venta, this.token).subscribe(
 
       response=>{
-        console.log(response);
+
+        this._clienteService.enviar_correo_compra_cliente(response.venta._id,this.token).subscribe(
+
+          response=>{
+
+            this._router.navigate(['/']);
+          }
+
+        );
+        
 
 
       }
