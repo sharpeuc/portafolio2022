@@ -39,6 +39,7 @@ var ticket_route = require('./routes/ticket');
 var config_route = require('./routes/config');
 var carrito_route = require('./routes/carrito');
 var venta_route = require('./routes/venta');
+var descuento_route = require('./routes/descuento');
 
 
 
@@ -80,6 +81,8 @@ app.use('/api',ticket_route);
 app.use('/api',config_route);
 app.use('/api',carrito_route);
 app.use('/api',venta_route);
+app.use('/api',descuento_route);
+
 
 
 
