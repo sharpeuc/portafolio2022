@@ -147,5 +147,12 @@ export class ClienteService {
     return this._http.get(this.url+'enviar_correo_compra_cliente/' +id,{headers:headers});
   
    }
+   
+   validar_ticket_cliente(ticket:any,token:any):Observable<any>{
+    let headers = new HttpHeaders({'Content-Type':'application/json','Authorization':token});
+    return this._http.get(this.url+'validar_ticket_cliente/' +ticket,{headers:headers});
+  
+   }
+  
   }
 

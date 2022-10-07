@@ -230,8 +230,11 @@
                   <div class="input-group input-group-lg">
                     <input type="text" id="promo-code" class="form-control" placeholder="Aplicar ticket" name="ticket" [(ngModel)] = "venta.ticket">
                     <div class="input-group-append">
-                      <button type="button" class="btn btn-primary">&nbsp;&nbsp;Aplicar&nbsp;&nbsp;</button>
+                      <button type="button" class="btn btn-primary" (click)="validar_ticket()">&nbsp;&nbsp;Aplicar&nbsp;&nbsp;</button>
                     </div>
+                  </div>
+                  <div class="alert alert-danger mt-3" role="alert" *ngIf="error_ticket">
+                    {{error_ticket}}
                   </div>
                 </div>
                 <div class="bg-secondary rounded mb-4">
@@ -249,7 +252,7 @@
                     </li>
                     <li class="d-flex justify-content-between mb-2">
                       <span>Descuento:</span>
-                      <span>&mdash;</span>
+                      <span>- ${{descuento}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
                     </li>

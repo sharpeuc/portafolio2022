@@ -34,6 +34,8 @@ export class CarritoComponent implements OnInit {
   public precio_envio = "0";
   public venta:any = {};
   public dventa:Array<any> = [];
+  public error_ticket = '';
+  public descuento = 0;
 
   
 
@@ -235,6 +237,51 @@ calcular_total(envio_titulo:any){
   this.venta.envio_titulo = envio_titulo;
 
   console.log(this.venta);
+}
+
+validar_ticket(){
+
+  if(this.venta.ticket){
+
+    if(this.venta.ticket.toString().length <= 20){
+     
+      this._clienteService.validar_ticket_cliente(this.venta.ticket, this.token).subscribe(
+        response=>{
+          if(response.data != undefined){
+            this.error_ticket = '';
+
+            if(response.data.tipo == 'Preferencial'){
+              this.descuento = response.data.valor;
+              this.total_pagar = this.total_pagar - this.descuento;
+
+            }else if(response.data.tipo == 'Parcial'){
+              this.descuento = response.data.valor;
+              this.total_pagar = this.total_pagar - this.descuento;
+              
+
+            }
+
+          }else{
+            this.error_ticket = 'el ticket no se pudo utilizar'
+
+
+          }
+          
+          console.log(response);
+
+        }
+      );
+  
+  
+    }else{
+        this.error_ticket = 'el ticket debe ser menor a 20 caracteres'
+  
+    }
+  }else{
+
+    this.error_ticket = 'el ticket no es válido'
+
+  }
 }
 
 }

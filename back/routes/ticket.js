@@ -11,6 +11,7 @@ api.get('/listar_tickets_admin/:filtro?', auth.auth, ticketController.listar_tic
 api.get('/obtener_ticket_admin/:id', auth.auth, ticketController.obtener_ticket_admin);
 api.put('/actualizar_ticket_admin/:id', auth.auth, ticketController.actualizar_ticket_admin);
 api.delete('/eliminar_ticket_admin/:id', auth.auth, ticketController.eliminar_ticket_admin);
+api.get('/validar_ticket_cliente/:ticket', auth.auth, ticketController.validar_ticket_cliente);
 
 
 
