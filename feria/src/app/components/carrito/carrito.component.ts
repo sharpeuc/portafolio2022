@@ -254,15 +254,26 @@ validar_ticket(){
               this.descuento = response.data.valor;
               this.total_pagar = this.total_pagar - this.descuento;
 
+              if(this.descuento > this.subtotal){
+                this.total_pagar = 0;
+
+              }
+
             }else if(response.data.tipo == 'Parcial'){
               this.descuento = response.data.valor;
               this.total_pagar = this.total_pagar - this.descuento;
+
+              if(this.descuento > this.subtotal){
+                this.total_pagar = 0;
+
+
+              }
               
 
             }
 
           }else{
-            this.error_ticket = 'el ticket no se pudo utilizar'
+            this.error_ticket = 'ticket inválido'
 
 
           }
@@ -279,7 +290,7 @@ validar_ticket(){
     }
   }else{
 
-    this.error_ticket = 'el ticket no es válido'
+    this.error_ticket = 'por favor debe ingresar un ticket'
 
   }
 }

@@ -1,4 +1,6 @@
 var Descuento = require('../models/descuento');
+var fs = require('fs');
+var path = require('path');
 
 const registro_descuento_admin = async function(req,res){
     if(req.user){
@@ -30,7 +32,7 @@ const listar_descuentos_admin = async function(req,res){
 
             var filtro = req.params['filtro'];
 
-            let reg = await Descuento.find({titulo: new RegExp(filtro, 'i')});
+            let reg = await Descuento.find({titulo: new RegExp(filtro, 'i')}).sort({createdAt:-1});
 
             res.status(200).send({data:reg});
 
@@ -49,10 +51,9 @@ const listar_descuentos_admin = async function(req,res){
 }
 
 const obtener_banner_descuento = async function(req,res){
-
     var img = req.params['img'];
 
-    console.log(img);
+
     fs.stat('./uploads/descuentos/'+img, function(err){
         if(!err){
             let path_img = './uploads/descuentos/'+img;

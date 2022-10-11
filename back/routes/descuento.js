@@ -8,7 +8,7 @@ var auth = require('../middlewares/authenticate');
 var multiparty = require('connect-multiparty');
 var path = multiparty({uploadDir: './uploads/descuentos'});
 
-api.post('/registro_descuento_admin', [auth.auth, path], descuentoController.registro_descuento_admin);
+api.post('/registro_descuento_admin',[auth.auth,path],descuentoController.registro_descuento_admin);
 api.get('/listar_descuentos_admin/:filtro?', auth.auth, descuentoController.listar_descuentos_admin);
 api.get('/obtener_banner_descuento/:img',descuentoController.obtener_banner_descuento);
 api.get('/obtener_descuento_admin/:id',[auth.auth, path],descuentoController.obtener_descuento_admin);
