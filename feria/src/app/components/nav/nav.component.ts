@@ -4,6 +4,7 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
 declare var $:any;
 import { io } from 'socket.io-client';
+import { GuestService } from 'src/app/services/guest.service';
 declare var iziToast:any;
 
 @Component({
@@ -23,12 +24,14 @@ export class NavComponent implements OnInit {
   public url:any;
   public subtotal:any = 0;
   public socket = io('http://localhost:4201');
+  public descuento_activo:any = undefined;
   
 
   constructor(
   
     private _clienteService: ClienteService,
-    private _router: Router
+    private _router: Router,
+    private _guestService: GuestService
 
   ) {
 
@@ -107,6 +110,22 @@ obtener_carrito_cliente(){
 
     });
   
+    this._guestService.obtener_descuento_activo().subscribe(
+
+      response=>{
+
+        if(response.data != undefined){
+          this.descuento_activo = response.data[0];
+
+        }else{
+
+          this.descuento_activo = undefined;
+        }
+       
+      }
+    );
+ 
+ 
   }
 
 logout(){
@@ -135,10 +154,17 @@ op_modalcart(){
 }
 
 calcular_carrito(){
-  this.carrito_arr.forEach(element =>{
-    this.subtotal = this.subtotal + parseInt (element.producto.precio);
-});
-
+  this.subtotal = 0;
+  if(this.descuento_activo == undefined){
+    this.carrito_arr.forEach(element => {
+        this.subtotal = this.subtotal + parseInt(element.producto.precio);
+    });
+  }else if(this.descuento_activo != undefined){
+    this.carrito_arr.forEach(element => {
+      let new_precio = Math.round(parseInt(element.producto.precio) - (parseInt(element.producto.precio)*this.descuento_activo.descuento)/100);
+      this.subtotal = this.subtotal + new_precio;
+  });
+  }
 }
 eliminar_item(id:any){
 

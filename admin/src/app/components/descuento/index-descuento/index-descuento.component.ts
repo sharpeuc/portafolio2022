@@ -142,7 +142,7 @@ export class IndexDescuentoComponent implements OnInit {
           titleColor: 'green',
           class: 'text-success',
           position: 'topLeft',
-          message: 'Producto eliminado correctamente',
+          message: 'descuento eliminado correctamente',
           messageColor: 'blue'
         })
   

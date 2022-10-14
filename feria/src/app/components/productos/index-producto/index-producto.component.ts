@@ -6,6 +6,7 @@ declare var noUiSlider:any;
 declare var $:any;
 declare var iziToast: any;
 import { io } from 'socket.io-client';
+import { GuestService } from 'src/app/services/guest.service';
 
 @Component({
   selector: 'app-index-producto',
@@ -34,12 +35,14 @@ export class IndexProductoComponent implements OnInit {
   public btn_cart = false;
   public token: any;
   public socket = io('http://localhost:4201');
+  public descuento_activo:any = undefined;
  
 
   
   constructor(
 private _clienteService: ClienteService,
-private _route: ActivatedRoute
+private _route: ActivatedRoute,
+private _guestService: GuestService
 
   ) { 
 
@@ -118,6 +121,21 @@ private _route: ActivatedRoute
         $('.cs-range-slider-value-max').val(values[1]);
     });
     $('.noUi-tooltip').css('font-size','11px');
+
+    this._guestService.obtener_descuento_activo().subscribe(
+
+      response=>{
+
+        if(response.data != undefined){
+          this.descuento_activo = response.data[0];
+
+        }else{
+
+          this.descuento_activo = undefined;
+        }
+       
+      }
+    );
  
   }
 

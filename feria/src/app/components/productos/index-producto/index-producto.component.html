@@ -12,8 +12,24 @@
       </nav>
       <section class="container pt-3 pb-5 pb-md-6 mb-2 mb-lg-0">
 
-
-        <!-- Toolbar + Pagination -->
+        <div class="row mb-5" *ngIf="descuento_activo !=undefined">
+          <div class="col-12">
+            <!-- Promo banner -->
+<div class="py-5 px-md-5 px-4 bg-size-cover bg-position-center-y" style="background-image: url({{url}}obtener_banner_descuento/{{descuento_activo.banner}});">
+  <div class="mt-md-3 mb-5 pb-5 p-md-2" style="max-width: 8rem;">
+    <h5 class="mb-2 pb-1 fs-sm text-uppercase text-center">Desde {{descuento_activo.fecha_inicio}} <br>
+      hasta <br> {{descuento_activo.fecha_termino}}</h5>
+    <h4 class="pb-3 text-center" >{{descuento_activo.titulo}}</h4>
+    <a class="btn btn-primary mb-8 text text-center">todos los productos</a>
+  </div>
+  <div class="mb-md-3 pt-5 p-md-2">
+    <h3 class="mb-2 pb-1 fs-sm text-uppercase text text-center">Descuento de {{descuento_activo.descuento}}%</h3>
+  </div>
+</div>
+            
+          </div>
+        </div>
+       
         <div class="row mb-4 pb-2">
           <div class="col-md-3 pr-lg-4 mb-3 mb-md-0">
 
@@ -222,6 +238,7 @@
                         <img [src]=" url +'obtener_portada/'+item.portada" alt="Product image">
                       </a>
                       <div class="card-product-widgets-top">
+                        <span class="badge product-badge badge-danger" *ngIf="descuento_activo">-{{descuento_activo.descuento}}%</span>
                         <div class="star-rating ml-auto">
                           <i class="sr-star cxi-star-filled active"></i>
                           <i class="sr-star cxi-star-filled active"></i>
@@ -238,9 +255,13 @@
                       <h3 class="card-product-title text-truncate mb-2">
                         <a [routerLink]="['/productos/', item.slug]" class="nav-link">{{item.titulo}}</a>
                       </h3>
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center" *ngIf="descuento_activo == undefined">
                         <span class="h5 d-inline-block mb-0">${{item.precio}}</span>
                       </div>
+                    <div class="d-flex align-item-center" *ngIf="descuento_activo != undefined">
+                      <span class="h5 d-inline-block text-danger mb-0">${{item.precio | descuento: descuento_activo.descuento}}</span>
+                      <del class="d-inline-block ml-2 pl-1 text-muted">${{item.precio}}</del>
+                    </div>
                     </div>
                     <div class="card-footer">
                       <div class="d-flex align-items-center mb-2 pb-1">

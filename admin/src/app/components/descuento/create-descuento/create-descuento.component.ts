@@ -152,7 +152,7 @@ export class CreateDescuentoComponent implements OnInit {
           color: '#FFF',
           class: 'text-danger',
           position: 'topRight',
-          message: 'La imagen no puede superar los 4MB'
+          message: 'La imagen no puede superar los 10MB'
       });
       $('#input-portada').text('Seleccionar imagen');
       this.imgSelect = 'assets/img/01.jpg';

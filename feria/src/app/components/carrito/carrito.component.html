@@ -46,11 +46,17 @@
                         <li class="mb-0"><span class="text-muted">{{item.producto.titulo_variedad}}:</span> {{item.variedad}}</li>
                       </ul>
                     </div>
-                    <div class="d-flex pr-sm-3">
+                    <div class="d-flex pr-sm-3" *ngIf="descuento_activo != undefined">
                       <input type="number" class="form-control form-control-sm bg-light mr-3" readonly style="width: 4.5rem;" value="{{item.cantidad}}">
                       <div class="text-nowrap pt-2">
-                       <!---- <strong class="text-danger"></strong>-->
-                        <span style="font-size: 1.2rem !important;" class="font-size-xs text-muted">${{item.producto.precio|currency:'CLP'}}</span>
+                       <strong class="text-danger mr-2">${{item.producto.precio| descuento:descuento_activo.descuento|currency:'CLP'}}</strong>
+                        <span style="font-size: 1.0rem !important;" class="font-size-xs text-muted">${{item.producto.precio|currency:'CLP'}}</span>
+                      </div>
+                    </div>
+                    <div class="d-flex pr-sm-3" *ngIf="descuento_activo == undefined">
+                      <input type="number" class="form-control form-control-sm bg-light mr-3" readonly style="width: 4.5rem;" value="{{item.cantidad}}">
+                      <div class="text-nowrap pt-2">
+                        <span style="font-size: 1.0rem !important;" class="font-size-xs text-muted">${{item.producto.precio|currency:'CLP'}}</span>
                       </div>
                     </div>
                     <div class="d-flex align-items-center flex-sm-column text-sm-center ml-sm-auto pt-3 pt-sm-0">
@@ -228,7 +234,7 @@
                 <div class="form-group">
                   <label for="promo-code">Aplicar ticket</label>
                   <div class="input-group input-group-lg">
-                    <input type="text" id="promo-code" class="form-control" placeholder="Aplicar ticket" name="ticket" [(ngModel)] = "venta.ticket">
+                    <input type="text" id="promo-code" class="form-control"  placeholder="Aplicar ticket" name="ticket" [(ngModel)] = "venta.ticket">
                     <div class="input-group-append">
                       <button type="button" class="btn btn-primary" (click)="validar_ticket()">&nbsp;&nbsp;Aplicar&nbsp;&nbsp;</button>
                     </div>

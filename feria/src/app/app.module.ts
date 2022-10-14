@@ -16,6 +16,7 @@ import { IndexProductoComponent } from './components/productos/index-producto/in
 import { MostrarProductoComponent } from './components/productos/mostrar-producto/mostrar-producto.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { DireccionesComponent } from './components/usuario/direcciones/direcciones.component';
+import { DescuentoPipe } from './pipes/descuento.pipe';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DireccionesComponent } from './components/usuario/direcciones/direccion
     IndexProductoComponent,
     MostrarProductoComponent,
     CarritoComponent,
-    DireccionesComponent
+    DireccionesComponent,
+    DescuentoPipe
   ],
   imports: [
     BrowserModule,
