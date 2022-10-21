@@ -35,5 +35,9 @@ api.put('/cambiar_direccion_principal_cliente/:id/:cliente',auth.auth,clienteCon
 api.get('/obtener_direccion_principal_cliente/:id',auth.auth,clienteController.obtener_direccion_principal_cliente);
 
 
+api.post('/enviar_mensaje_contacto',clienteController.enviar_mensaje_contacto);
+api.get('/obtener_ordenes_cliente/:id',auth.auth,clienteController.obtener_ordenes_cliente);
+
+
 
 module.exports = api;

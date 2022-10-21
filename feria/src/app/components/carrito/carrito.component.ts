@@ -38,9 +38,6 @@ export class CarritoComponent implements OnInit {
   public descuento = 0;
   public descuento_activo:any = undefined;
  
- 
-  
-
   
 
   constructor(
@@ -217,12 +214,16 @@ calcular_carrito(){
     this.carrito_arr.forEach(element => {
         this.subtotal = this.subtotal + parseInt(element.producto.precio);
     });
+ 
   }else if(this.descuento_activo != undefined){
     this.carrito_arr.forEach(element => {
       let new_precio = Math.round(parseInt(element.producto.precio) - (parseInt(element.producto.precio)*this.descuento_activo.descuento)/100);
       this.subtotal = this.subtotal + new_precio;
   });
-  }
+  
+  
+
+}
 
 }
 
@@ -257,10 +258,20 @@ eliminar_item(id:any){
 
 calcular_total(envio_titulo:any){
 
+  this.subtotal = 0
+    this.carrito_arr.forEach(item => {
+      this.subtotal =  this.subtotal + (parseInt(item.producto.precio) * parseInt(item.cantidad))
+    
+    this.total_pagar = this.subtotal
+  })
+ 
   this.total_pagar = parseInt(this.subtotal.toString()) + parseInt(this.precio_envio)
   this.venta.subtotal = this.total_pagar;
   this.venta.envio_precio = parseInt (this.precio_envio);
   this.venta.envio_titulo = envio_titulo;
+
+
+  
 
 
   console.log(this.venta);
@@ -276,6 +287,7 @@ validar_ticket(){
         response=>{
           if(response.data != undefined){
             this.error_ticket = '';
+            
 
             if(response.data.tipo == 'Preferencial'){
               this.descuento = response.data.valor;
@@ -320,8 +332,9 @@ validar_ticket(){
     this.error_ticket = 'por favor debe ingresar un ticket'
 
   }
-}
 
+
+}
 
 
 }

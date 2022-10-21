@@ -36,22 +36,22 @@ export class InicioComponent implements OnInit {
           if(element.titulo == 'frutas exportación'){
             this.categorias.push({
               titulo:element.titulo,
-              portada: 'assets\img\FotosFeriavirtual/Peras.jpg'
+              portada: 'assets/img/ecommerce/home/categories/16.jpg'
             });
           }else if(element.titulo == 'abarrotes'){
             this.categorias.push({
               titulo:element.titulo,
-              portada: 'assets\img\FotosFeriavirtual/abarrotes.jpg'
+              portada: 'assets/img/ecommerce/home/categories/13.jpg'
             });
           }else if(element.titulo == 'Verduras'){
             this.categorias.push({
               titulo:element.titulo,
-              portada: 'assets\img\FotosFeriavirtual/coliflor1.jpg'
+              portada: 'assets/img/ecommerce/home/categories/14.jpg'
             });
           }else if(element.titulo == 'Frutas nacionales'){
             this.categorias.push({
               titulo:element.titulo,
-              portada: 'assets\img\FotosFeriavirtual/Kiwi.jpg'
+              portada: 'assets/img/ecommerce/home/categories/15.jpg'
             });
           }
         });

@@ -82,4 +82,12 @@ export class GuestService {
 
    }
   
+   enviar_mensaje_contacto(data:any): Observable<any>{
+
+    let headers = new HttpHeaders().set('content-Type', 'application/json');
+
+    return this._http.post(this.url + 'enviar_mensaje_contacto',data,{headers:headers});
+
+   }
+  
   }

@@ -157,7 +157,8 @@ calcular_carrito(){
   this.subtotal = 0;
   if(this.descuento_activo == undefined){
     this.carrito_arr.forEach(element => {
-        this.subtotal = this.subtotal + parseInt(element.producto.precio);
+        this.subtotal = this.subtotal + parseInt(element.producto.precio)
+      
     });
   }else if(this.descuento_activo != undefined){
     this.carrito_arr.forEach(element => {
