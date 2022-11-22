@@ -270,6 +270,8 @@ calcular_total(envio_titulo:any){
   this.venta.envio_precio = parseInt (this.precio_envio);
   this.venta.envio_titulo = envio_titulo;
 
+  
+
 
   
 
