@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StarRatingComponent } from 'ng-starrating';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
 
@@ -16,6 +17,7 @@ export class DetalleOrdenComponent implements OnInit {
   public detalles:Array<any> = [];
   public load_data = true;
   public id:any;
+  public totalstar = 5;
 
   constructor(
 
@@ -54,6 +56,10 @@ export class DetalleOrdenComponent implements OnInit {
     }
 
   ngOnInit(): void {
+  }
+
+  onRate($event:{oldValue:number,newValue:number,starRating:StarRatingComponent}){
+    
   }
 
 }

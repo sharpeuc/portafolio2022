@@ -20,6 +20,7 @@ import { DescuentoPipe } from './pipes/descuento.pipe';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { IndexOrdenesComponent } from './components/usuario/ordenes/index-ordenes/index-ordenes.component';
 import { DetalleOrdenComponent } from './components/usuario/ordenes/detalle-orden/detalle-orden.component';
+import { RatingModule } from 'ng-starrating';
 
 
 
@@ -48,7 +49,8 @@ import { DetalleOrdenComponent } from './components/usuario/ordenes/detalle-orde
     FormsModule,
     HttpClientModule,
     routing,
-    NgbPaginationModule
+    NgbPaginationModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
