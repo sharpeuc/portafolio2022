@@ -27,6 +27,7 @@ export class DetalleOrdenComponent implements OnInit {
     ) { 
   
     this.token = localStorage.getItem('token');
+    this.url = GLOBAL.url
     this._route.params.subscribe(
 
       params=>{
